@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import sys
+from pact_test.pact import verify
 
 
 def print_help():
@@ -14,14 +15,5 @@ def print_help():
     print('                                ')
 
 
-def verify():
-    pass
-
-
-if len(sys.argv) is 1:
-    print_help()
-else:
-    if sys.argv[1] == 'verify':
-        verify()
-    else:
-        print_help()
+if len(sys.argv) is 1: print_help()
+else: verify() if sys.argv[1] == 'verify' else print_help()
